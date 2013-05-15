@@ -3,6 +3,9 @@
  */
 package com.npickard;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+
 /**
  * @author nigel
  *
@@ -10,12 +13,15 @@ package com.npickard;
  */
 public class HelloWorld {
 
-	/**
-	 * added comment
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		System.out.println("Hello world.... with a change that is not in a branch! It is in the master");
-	}
+	// Define a static logger variable so that it references the
+	// Logger instance named "MyApp".
+	static Logger logger = Logger.getLogger(HelloWorld.class);
 
+	public static void main(String[] args) {
+
+		// Set up a simple configuration that logs on the console.
+		BasicConfigurator.configure();
+
+		logger.info("Hello World!");
+	}
 }
